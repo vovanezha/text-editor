@@ -3,5 +3,80 @@
   "private": true,
   "repository": "https://github.com/vovanezha/text-editor.git",
   "author": "Vladimir.Nejelschii <vovanezhathings@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel serve src/index.pug --open",
+    "build": "rimraf .cache dist && parcel build src/index.pug",
+    "lint": "eslint . && stylelint src/**/*.css",
+    "test": "yarn lint && yarn build && size-limit"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "eslint": "^6.8.0",
+    "eslint-plugin-unicorn": "^18.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.5",
+    "parcel": "^1.12.4",
+    "postcss-media-minmax": "^4.0.0",
+    "postcss-mixins": "^6.2.3",
+    "postcss-nested": "^4.2.1",
+    "pug": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "size-limit": "^4.4.5",
+    "stylelint": "^13.3.2",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-recommended": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=12.2.0",
+    "yarn": ">=1.22.4"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "firefox esr",
+    "not dead",
+    "not ie 11",
+    "not op_mini all",
+    "not op_mob > 0",
+    "not and_qq > 0",
+    "not android > 0"
+  ],
+  "eslintConfig": {
+    "extends": "plugin:unicorn/recommended",
+    "rules": {
+      "unicorn/filename-case": 0,
+      "unicorn/prefer-number-properties": 0,
+      "unicorn/no-fn-reference-in-iterator": 0
+    }
+  },
+  "stylelint": {
+    "extends": ["stylelint-config-recommended", "stylelint-config-recess-order"]
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-mixins": {
+        "mixinsDir": "mixins"
+      },
+      "postcss-media-minmax": {},
+      "postcss-nested": {},
+      "autoprefixer": {}
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.css": "stylelint --fix"
+  },
+  "size-limit": [
+    {
+      "path": [
+        "dist/*"
+      ],
+      "limit": "17 KB"
+    }
+  ]
 }
