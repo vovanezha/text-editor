@@ -1,0 +1,7 @@
+{
+  "name": "text-editor",
+  "private": true,
+  "repository": "https://github.com/vovanezha/text-editor.git",
+  "author": "Vladimir.Nejelschii <vovanezhathings@gmail.com>",
+  "license": "MIT"
+}
