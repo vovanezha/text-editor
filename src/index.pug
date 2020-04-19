@@ -1,24 +1,11 @@
 doctype html
 html(lang="en")
   head
-  meta(charset="utf-8")
-  title Text Editor
-  meta(name="viewport", content="width=device-width")
-  link(rel="stylesheet", href="./common.css")
+    title Text Editor
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width")
+    link(rel="stylesheet", href="./common.css")
+    script(defer, src="./common.js")
 
   body
-    h1 Text editor
-    h2 Text editor
-    h3 Text editor
-    h4 Text editor
-    h5 Text editor
-    h6 Text editor
-    a(href="") Text edigqtor
-    button Click me right now
-    p.
-      hello there, how are you and what are you doing there? oh nice. Good, I am too. So what we gonna do now and
-       then because I have a pet project and want share some things about web development not so
-        If you want to ask me anything about front-end or back-end you can chat me in twitter or telegram: @vovanezha
-        1 2 3 4 5 6 7 8 9 10 #hashtag
-    main.main-content
-      div(class="editable" contenteditable)
+    include ./main/main.pug

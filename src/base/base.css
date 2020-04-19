@@ -4,7 +4,6 @@
   --base-text: var(--base-black);
   --base-accent: rgba(55, 53, 47, 0.18);
   --base-light-accent: rgba(55, 53, 47, 0.08);
-  --base-blue: blue;
   --base-font-size: 20px;
   --base-focus: 0 0 0 2px var(--base-accent);
 }
