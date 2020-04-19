@@ -1,0 +1,22 @@
+.main-content {
+  margin: 0 auto;
+  flex: 0 1 768px;
+
+  @mixin mobile {
+    flex: 1;
+    margin: 0 20px;
+  }
+
+  @mixin tablet {
+    flex-basis: 680px;
+  }
+
+  @mixin large-screen {
+    flex-basis: 1024px;
+  }
+}
+
+.editable {
+  height: 30px;
+  border: 1px solid #aaa;
+}
