@@ -1,0 +1,5 @@
+@define-mixin tablet {
+  @media (768px <= width < 1024px) {
+    @mixin-content ;
+  }
+}

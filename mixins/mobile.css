@@ -1,0 +1,5 @@
+@define-mixin mobile {
+  @media (width < 768px) {
+    @mixin-content ;
+  }
+}
