@@ -1,5 +1,5 @@
 @define-mixin large-screen {
-  @media (width >= 1824px) {
+  @media (width >= 2560px) {
     @mixin-content ;
   }
 }

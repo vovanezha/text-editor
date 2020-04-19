@@ -1,8 +1,42 @@
 import getFromLocalStorage from "../../lib/get-from-local-storage";
+import onKey from "../../lib/on-key";
+
+function attachEventListeners(element) {
+  element.addEventListener("input", (event) => {
+    if (!element.id) {
+      return;
+    }
+    
+    content[element.id] = event.target.innerHTML;
+    localStorage.setItem("editable-content", JSON.stringify(content));
+  });
+  
+  onKey(element, {
+    Enter(event) {
+      event.preventDefault();
+      
+      const editable = createEditable();
+      element.after(editable);
+      editable.focus();
+    },
+  });
+}
+
+function createEditable() {
+  const editable = document.createElement("div");
+  editable.setAttribute("id", id++);
+  editable.setAttribute("contenteditable", "true");
+  editable.classList.add("editable");
+  
+  attachEventListeners(editable);
+  
+  return editable;
+}
 
 const editables = document.querySelectorAll(".editable");
-const savedContent = getFromLocalStorage("editable-content");
-const content = savedContent || {};
+const savedContent = getFromLocalStorage("editable-content") || {};
+const content = savedContent;
+let id = 1;
 
 editables.forEach((editable, index) => {
   // TODO: set focus on the last edited element
@@ -14,10 +48,5 @@ editables.forEach((editable, index) => {
     editable.innerHTML = savedContent[editable.id];
   }
   
-  editable.addEventListener("input", (event) => {
-    const newValue = event.target.innerHTML;
-    content[editable.id] = newValue;
-    
-    localStorage.setItem("editable-content", JSON.stringify(content));
-  });
+  attachEventListeners(editable);
 });
