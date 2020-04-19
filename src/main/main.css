@@ -18,5 +18,8 @@
 
 .editable {
   height: 30px;
-  border: 1px solid #aaa;
+
+  &:focus {
+    box-shadow: none;
+  }
 }
